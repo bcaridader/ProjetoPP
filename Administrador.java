@@ -1,7 +1,3 @@
-package Classes;
-
-
-import Classes.Utilizador;
 
 public class Administrador extends Utilizador {
     

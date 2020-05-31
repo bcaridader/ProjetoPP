@@ -1,6 +1,7 @@
-package Classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -46,7 +47,20 @@ public class ListaHospital {
     }
     
     //Retorna na Integra a Lista de Hospitais
-    public HashMap<String, Hospital> getListaHospital() {
-        return listaHospital;
+    public List<Hospital> getHospitais(){
+        return new ArrayList<>(listaHospital.values());
+    }
+
+    //Retorna o tamanho da Lista
+    public int size () {
+        return listaHospital.size();
+    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        for (Hospital h : listaHospital.values()){
+            sb.append(h);
+        }
+        return sb.toString();
     }
 }

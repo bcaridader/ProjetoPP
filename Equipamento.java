@@ -1,11 +1,11 @@
-package Classes;
+
 
 
 public class Equipamento {
     
     private String codigo;
     private String enfermaria;
-    private String tipo;
+    private EquipamentoTipo tipo;
     private boolean ocupacao;
     private String cod_doente;
     
@@ -13,7 +13,7 @@ public class Equipamento {
     public Equipamento(){
     }
 
-    public Equipamento(String codigo,String tipo, String enfermaria) {
+    public Equipamento(String codigo,EquipamentoTipo tipo, String enfermaria) {
         this.codigo = codigo;
         this.tipo = tipo;
         this.enfermaria = enfermaria;
@@ -27,12 +27,11 @@ public class Equipamento {
         this.cod_doente = cod_doente;
     }
     
-    
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(EquipamentoTipo tipo) {
         this.tipo = tipo;
     }
 
@@ -44,12 +43,11 @@ public class Equipamento {
         this.ocupacao = ocupacao;
     }
     
-    
     public String getCodigo() {
         return codigo;
     }
 
-    public String getTipo() {
+    public EquipamentoTipo getTipo() {
         return tipo;
     }
 
@@ -60,6 +58,7 @@ public class Equipamento {
     public boolean getOcupacao() {
         return ocupacao;
     }
+
     public String getCod_doente() {
         return cod_doente;
     }

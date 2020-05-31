@@ -1,6 +1,8 @@
-package Classes;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,7 +14,7 @@ public class ListaEquipamento {
         this.listaEquipamento = new HashMap<>();
         }
     
-    //Adicionar equipamento a lista,identificado pelo seu código
+    //Adicionar equipamento
     public void adicionar (Equipamento equipamento) {
         if(existe(equipamento.getCodigo())){
             throw new RuntimeException("O" + equipamento.getTipo() + "que está a inserir já existe!" );
@@ -20,7 +22,7 @@ public class ListaEquipamento {
         listaEquipamento.put(equipamento.getCodigo(), equipamento);
     }
     
-    //Remover equipamento da lista,identificado pelo seu código
+    //Remover equipamento
     public void remover(String codigo){
         if(existe(codigo)){
             listaEquipamento.remove(codigo);
@@ -34,9 +36,11 @@ public class ListaEquipamento {
         return listaEquipamento.containsKey(codigo);
     }
     
-    public HashMap<String, Equipamento> getListaEquipamento() {
-        return listaEquipamento;
+    public List<Equipamento> getEquipamentos(){
+        return new ArrayList<>(listaEquipamento.values());
     }
+
+    //Ordena por ordem Alfabetica os equipamentos
     public Set<Equipamento> OrdenarAlfabeticamente(){
         Set<Equipamento> equipamento = new TreeSet<>();
         this.listaEquipamento.forEach((key,value)-> equipamento.add(value));
@@ -57,9 +61,57 @@ public class ListaEquipamento {
         }
     }
 
+    //Liberta a Ocupação de um Equipamento associado a um Doente
+    public void LibertarEquip(Equipamento equipamento){
+        Equipamento e = this.listaEquipamento.get(equipamento.getCodigo());
+        if(e != null){
+            equipamento.setOcupacao(false);
+                equipamento.setCod_doente(null);
+        }
+    }
+
+    //Lista os equipamentos
+    public List<Equipamento> ListaEquip(){
+        List<Equipamento> equipamentos = new ArrayList<>();
+        for(Equipamento e:this.listaEquipamento.values()){
+            if(e.getOcupacao()){
+                equipamentos.add(e);
+            }
+        }
+        return equipamentos;
+    }
+
+    public HashMap<String, Equipamento> getListaEquipamento() {
+        return listaEquipamento;
+    }
+
+    //Retorna o tamanho da lista
+    public int size () {
+        return listaEquipamento.size();
+    }
+
+    //Número e percentagem de equipamentos ocupados, por cada tipo;
+    public void DashboardEquipamento(EquipamentoTipo tipo,Hospital hospital){
+        List<Equipamento> equipamentos = hospital.getEquipamentos().getEquipamentos();
+        int equipOcup = 0;
+        int count = 0;
+        int equipNocup = 0;
+        float equip_per;
+        for(Equipamento e:equipamentos){
+            if(e.getTipo() == tipo){
+                count +=1;
+                if(e.getOcupacao() == true)
+                    equipOcup += 1;
+            else equipNocup += 1;
+            }
+        }
+        equip_per = ((float)equipOcup / count * 100);
+        System.out.println("Tipo de Equipamento: " + tipo +"\n" + "O Número de equipamentos ocupados é: " + equipOcup + "\n" + "Percentagem de equipamentos ocupados deste tipo: " + equip_per + "%");
+
+    }
+
     @Override
     public String toString() {
-        return "ListaEquipamento{" + "listaEquipamento=" + listaEquipamento + '}';
+        return "Lista de Equipamentos: {" + listaEquipamento.values() + '}';
     }
-    
 }

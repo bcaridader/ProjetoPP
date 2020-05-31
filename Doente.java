@@ -1,4 +1,4 @@
-package Classes;
+
 import java.time.LocalDate;
 
 public class Doente implements Comparable<Doente>{
@@ -6,7 +6,6 @@ public class Doente implements Comparable<Doente>{
     private String codigo;
     private String nome;
     private String localidade;
-    private String enfermaria;
     private int nCama;
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
@@ -15,30 +14,16 @@ public class Doente implements Comparable<Doente>{
     public Doente() {
     }
 
-    public Doente(String codigo, String nome, String localidade, String enfermaria, int nCama, LocalDate dataEntrada){
+    public Doente(String codigo, String nome, String localidade, int nCama, LocalDate dataEntrada){
         this.codigo = codigo;
         this.nome = nome;
         this.localidade = localidade;
-        this.enfermaria = enfermaria;
         this.nCama = nCama;
         this.dataEntrada = dataEntrada;
         this.dataSaida = null;
         this.estadoDoenca = Gravidade.POR_DIAGNOSTICAR;
     }
     
-    /*public Doente(Doente D){
-        this.codigo = D.getCodigo();
-        this.nome = D.getNome();
-        this.localidade = D.getLocalidade();
-        this.enfermaria = D.getEnfermaria();
-        this.nCama = D.getnCama();
-        this.dataEntrada = D.getDataEntrada();
-        this.dataSaida = D.getDataSaida();
-        this.estadoDoenca = D.getEstadoDoenca();
-        
-    }*/
-    
-
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -49,10 +34,6 @@ public class Doente implements Comparable<Doente>{
 
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
-    }
-
-    public void setEnfermaria(String enfermaria) {
-        this.enfermaria = enfermaria;
     }
 
     public void setnCama(int nCama) {
@@ -84,9 +65,6 @@ public class Doente implements Comparable<Doente>{
         return localidade;
     }
 
-    public String getEnfermaria() {
-        return enfermaria;
-    }
 
     public int getnCama() {
         return nCama;
@@ -106,7 +84,11 @@ public class Doente implements Comparable<Doente>{
 
     @Override
     public String toString() {
-        return "Doente{" + "codigo=" + codigo + ", nome=" + nome + ", localidade=" + localidade + ", enfermaria=" + enfermaria + ", nCama=" + nCama + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", estadoDoenca=" + estadoDoenca + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\t\t\t\tCódigo: ").append(codigo).append("\n").append("\t\t\t\tNome: ").append(nome).append("\n").append("\t\t\t\tLocalidade: ").append(localidade).append("\n")
+                .append("\t\t\t\tCama: ").append(nCama).append("\n").append("\t\t\t\tCheck-in: ").append(dataEntrada).append("\n").append("\t\t\t\tCheck-out: ").append(dataSaida).append("\n")
+                .append("\t\t\t\tEstado: ").append(estadoDoenca).append("\n");
+        return sb.toString();
     }
     
     @Override

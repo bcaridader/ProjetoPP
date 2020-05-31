@@ -1,4 +1,4 @@
-package Classes;
+
  
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class ListaUtilizador implements Serializable {
     }
  
     public void adicionar(Utilizador utilizador) throws UtilizadorDuplicadoException {
-        /*if (utilizador = null) {
+        /*if (Utilizador = null) {
             throw new NullPointerException("O utilizador não pode ser nulo.");
         }*/
         
@@ -59,6 +59,7 @@ public class ListaUtilizador implements Serializable {
     public ArrayList<Utilizador> todos() {
         return new ArrayList<>(lista.values());
     }
+
     public Set<Utilizador> OrdenarAlfabeticamente(){
         Set<Utilizador> utilizadores = new TreeSet<>();
         this.lista.forEach((key,value)-> utilizadores.add(value));

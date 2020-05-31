@@ -1,7 +1,7 @@
-package Classes;
 
-public class ProfissionaldeSaude implements Comparable <ProfissionaldeSaude> {
-    //abstract
+
+public abstract class ProfissionaldeSaude implements Comparable <ProfissionaldeSaude> {
+    
     private String codigo;
     private String nome;
     
@@ -31,12 +31,14 @@ public class ProfissionaldeSaude implements Comparable <ProfissionaldeSaude> {
     
     @Override
     public String toString() {
-        return "ProfissionaldeSaude{" + "codigo=" + codigo + ", nome=" + nome + '}';
+        return "\t\t\tncodigo=" + codigo + "\n\t\t\tnome=" + nome;
     }
     
     @Override
     public int compareTo(ProfissionaldeSaude PS) {
       return this.nome.compareTo(PS.getNome()); 
     }
-    
+
+
+
 }

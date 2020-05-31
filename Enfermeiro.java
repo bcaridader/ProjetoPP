@@ -1,4 +1,4 @@
-package Classes;
+
 
 public class Enfermeiro extends ProfissionaldeSaude{
     
@@ -22,11 +22,13 @@ public class Enfermeiro extends ProfissionaldeSaude{
     public String getEnfermaria(){
         return enfermaria;
     }
-    
-    
-    @Override
-    public String toString() {
-        return "Enfermeiro{" + "enfermaria=" + enfermaria + '}';
+
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Enfermeiro: \n").append(super.toString()).append("\n").
+                append("Enfermaria: ").append(enfermaria).append("\n");
+        return sb.toString();
     }
  }
 
