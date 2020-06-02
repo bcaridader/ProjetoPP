@@ -52,6 +52,34 @@ public class ListaEnfermaria {
         Enfermaria e = this.listaEnfermaria.get(codigo);
             return e.getFuncionarios();
     }
+    
+    //A enfermaria mais problemática, isto é, com o maior número de camas,ocupadas e o menor número de equipamentos livres.
+    public void DashBoardEnferm(Hospital hospital){
+        List<Enfermaria> enfermarias = hospital.getEnfermarias().getEnfermarias();
+            int nCamaOcup = 0;
+            int nEquipOcup = 0;
+            int nCamaOcup1 = 0;
+            int nEquiOcup1 = 0;
+            String enfermaria_nCamas = "";
+            String enfermaria_nEquip = "";
+        for(Enfermaria e:enfermarias){
+            if(e.getDoentes().size()> nCamaOcup){
+                nCamaOcup = e.getDoentes().size();
+                enfermaria_nCamas = e.getCodigo();
+            }
+            for(Equipamento equip:e.getEquipamentos().getEquipamentos()){
+                if(equip.getOcupacao()){
+                nEquipOcup += 1;
+                }
+            }
+                if(nEquipOcup > nEquiOcup1){
+                   nEquiOcup1 = nEquipOcup;
+                   nEquipOcup = 0;
+                   enfermaria_nEquip = e.getCodigo();
+                }
+        }
+        System.out.println("O Numero de camas ocupadas: " +nCamaOcup + "\n" + "Enfermaria: " + enfermaria_nCamas + "\n" + "Numero de equipamentos Ocupados: " + nEquiOcup1 + "\n" + "Enfermaria:" + enfermaria_nEquip );
+    }
 
     @Override
     public String toString() {
