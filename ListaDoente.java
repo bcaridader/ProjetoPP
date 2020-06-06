@@ -24,8 +24,14 @@ public class ListaDoente {
         if(existe(doente.getCodigo())){
             throw new RuntimeException(" O paciente " + doente.getNome() + " já se encontra registado");
         }
+        if (listaDoente != null) {
+            for(Doente d:listaDoente.values()){
+                if(d.getnCama() == doente.getnCama())
+                    throw new RuntimeException("Essa cama já se encontra ocupada");
+            }
+        }
         listaDoente.put(doente.getCodigo(), doente);
-    }
+    } 
     
     //Remove um Doente
     public void remover(String codigo) {
