@@ -13,7 +13,6 @@ public class ListaProfissionaldeSaude {
 
     //Adiciona um profissional de saude a lista de profissionais de saude
     public void adicionar(ProfissionaldeSaude profissionaldeSaude){
-        //this.listaProfissionaldeSaude.putIfAbsent(profissionaldeSaude.getCodigo(), profissionaldeSaude);
         if(existe(profissionaldeSaude.getCodigo())){
             throw new RuntimeException(" O Profissional de Saude " + profissionaldeSaude.getNome() + " já existe!");
                     }

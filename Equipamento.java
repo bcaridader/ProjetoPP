@@ -1,6 +1,3 @@
-
-
-
 public class Equipamento {
     
     private String codigo;

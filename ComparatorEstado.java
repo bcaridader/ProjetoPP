@@ -1,5 +1,3 @@
-
-
 import java.util.Comparator;
 
 //Comparator para o estado da doença

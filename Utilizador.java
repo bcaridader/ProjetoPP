@@ -1,5 +1,3 @@
-
-
 public class Utilizador {
     
     private String username;

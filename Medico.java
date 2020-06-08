@@ -32,7 +32,7 @@ public class Medico extends ProfissionaldeSaude {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("\n\t\tMédico: \n").append(super.toString()).append("\n\t\t\tEspecialidade: ").append(especialidade).append("\n").append("\t\t\tNumero de pacientes: ").append(pacientesAtribuidos.size());
+        sb.append("\n\t\tMédico: \n").append(super.toString()).append("\n\t\t\tEspecialidade: ").append(especialidade).append("\n").append("\t\t\tNumero de pacientes: ").append(pacientesAtribuidos);
         return sb.toString();
     }
 }

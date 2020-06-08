@@ -52,8 +52,9 @@ public class ListaEnfermaria {
         Enfermaria e = this.listaEnfermaria.get(codigo);
             return e.getFuncionarios();
     }
-    
-    //A enfermaria mais problemática, isto é, com o maior número de camas,ocupadas e o menor número de equipamentos livres.
+
+    //A enfermaria mais problemática, com o maior número de camas ocupadas e o menor número de equipamentos livres.
+    //TODO Somatorio equipamentos ocupados com camas ocupadas!
     public void DashBoardEnferm(Hospital hospital){
         List<Enfermaria> enfermarias = hospital.getEnfermarias().getEnfermarias();
             int nCamaOcup = 0;
@@ -78,7 +79,7 @@ public class ListaEnfermaria {
                    enfermaria_nEquip = e.getCodigo();
                 }
         }
-        System.out.println("O Numero de camas ocupadas: " +nCamaOcup + "\n" + "Enfermaria: " + enfermaria_nCamas + "\n" + "Numero de equipamentos Ocupados: " + nEquiOcup1 + "\n" + "Enfermaria:" + enfermaria_nEquip );
+        System.out.println("O Numero de camas ocupadas: " +nCamaOcup + "\n" + "Enfermaria com mais camas ocupadas: " + enfermaria_nCamas + "\n" + "Numero de equipamentos Ocupados: " + nEquiOcup1 + "\n" + "Enfermaria com menos equipamentos livres:" + enfermaria_nEquip );
     }
 
     @Override

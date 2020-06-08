@@ -1,5 +1,4 @@
 
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public class ListaDoente {
             }
         }
         listaDoente.put(doente.getCodigo(), doente);
-    } 
+    }
     
     //Remove um Doente
     public void remover(String codigo) {
@@ -104,7 +103,7 @@ public class ListaDoente {
         }
     }
 
-    //Filtra listagem por Enfermaria TODO Falta verificar existencia da Enfermaria
+    //Filtra listagem por Enfermaria
     public List<Doente> FiltrarEnfer(Enfermaria enfermaria){
        List<Doente> doentes = new ArrayList<>();
         for(Doente d:this.listaDoente.values()){

@@ -1,5 +1,3 @@
-
-
 public abstract class ProfissionaldeSaude implements Comparable <ProfissionaldeSaude> {
     
     private String codigo;
@@ -38,7 +36,4 @@ public abstract class ProfissionaldeSaude implements Comparable <ProfissionaldeS
     public int compareTo(ProfissionaldeSaude PS) {
       return this.nome.compareTo(PS.getNome()); 
     }
-
-
-
 }

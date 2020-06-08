@@ -1,5 +1,3 @@
-
-
 public class Enfermaria {
 
     
@@ -8,6 +6,7 @@ public class Enfermaria {
     private int nCamas;
     private ListaProfissionaldeSaude funcionarios;
     private ListaDoente doentes;
+    private ListaEquipamento equipamentos;
     
    
     public Enfermaria() {
@@ -60,11 +59,19 @@ public class Enfermaria {
         this.doentes = doentes;
     }
 
+    public ListaEquipamento getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamentos(ListaEquipamento equipamentos) {
+        this.equipamentos = equipamentos;
+    }
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("\n\t\tCódigo: ").append(codigo).append("\n").append("\t\tTipo: ").append(tipo).append("\n").
-                append("\t\tnCamas: ").append(nCamas).append("\n").append("\t\tfuncionarios: ").append(funcionarios).
-                append("\t\ndoentes: ").append(doentes).append("\n");
+        sb.append("\nCódigo: ").append(codigo).append("\n").append("Tipo: ").append(tipo).append("\n").append("Numero de camas total: ").append(nCamas + doentes.size())
+                .append("\nNumero de camas livres: ").append(nCamas).append("\n").append("funcionarios: ").append(funcionarios).
+                append("\ndoentes: ").append(doentes).append("\n");
         return sb.toString();
     }
 }

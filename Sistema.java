@@ -11,10 +11,13 @@ public class Sistema {
     private final ListaUtilizador utilizadores;
     private final List<RegistoAcesso> listaRegisto;
     private Utilizador utilizadorConectado;
+
+
     
     public Sistema (){
         utilizadores = new ListaUtilizador();
         listaRegisto = new ArrayList<>();
+
     }
     
     public ListaUtilizador getListaUtilizador() {
@@ -24,7 +27,8 @@ public class Sistema {
     public List <RegistoAcesso> getListaRegisto() {
         return listaRegisto;
     }
-    
+
+
     public boolean autenticarUtilizador(String username, String password) {
         if(utilizadores.existe(username)) {
             try{

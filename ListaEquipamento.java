@@ -35,7 +35,8 @@ public class ListaEquipamento {
     public boolean existe(String codigo){
         return listaEquipamento.containsKey(codigo);
     }
-    
+
+    //Retorna a Lista
     public List<Equipamento> getEquipamentos(){
         return new ArrayList<>(listaEquipamento.values());
     }
@@ -79,10 +80,6 @@ public class ListaEquipamento {
             }
         }
         return equipamentos;
-    }
-
-    public HashMap<String, Equipamento> getListaEquipamento() {
-        return listaEquipamento;
     }
 
     //Retorna o tamanho da lista

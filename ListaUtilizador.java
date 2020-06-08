@@ -29,10 +29,9 @@ public class ListaUtilizador implements Serializable {
     }
  
     public void adicionar(Utilizador utilizador) throws UtilizadorDuplicadoException {
-        /*if (Utilizador = null) {
+        if (utilizador == null) {
             throw new NullPointerException("O utilizador não pode ser nulo.");
-        }*/
-        
+        }
         if (!lista.containsKey(utilizador.getUsername())) {
             lista.put(utilizador.getUsername(), utilizador);
         } else {
